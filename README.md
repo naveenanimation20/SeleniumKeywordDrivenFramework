@@ -13,7 +13,7 @@ This project demonstrates a Keyword Driven Testing (KDT) framework implemented u
 ## Project Structure
 - `src/main/java/`: Contains the source code for the Keyword Driven Testing framework.
 - `src/test/java/`: Contains the test scripts written using the framework.
-- `src/test/resources/csvs/`: Contains the CSV files defining the test cases.
+- `src/test/resources/csvs/`: Contains the CSV files defining the test cases in the form of keywords.
 - `testng.xml`: TestNG configuration file for executing the tests.
 
 ## Setup Instructions
@@ -26,14 +26,15 @@ This project demonstrates a Keyword Driven Testing (KDT) framework implemented u
 - You can run the tests using the TestNG XML configuration file (`testng.xml`).
 - Execute the `testng.xml` file using your IDE or the TestNG command-line interface.
 - Ensure that the WebDriver instance is properly initialized and managed during test execution.
+- Parallel run through thread-count and parallel tags in testng.xml
 
 ## Test Reporting
 - TestNG generates detailed HTML reports after test execution.
 - The reports provide information about test results, including pass/fail status and error messages.
+- Integrated Extent and Allure reports as well, including pass/fail status, error messages and screenshot for failure tests.
 
 ## Contributing
 Contributions to improve the framework or add new features are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the [MIT License](LICENSE).
-
+NA
