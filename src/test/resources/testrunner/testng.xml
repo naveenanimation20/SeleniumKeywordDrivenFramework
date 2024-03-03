@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ParallelTests" parallel="methods" thread-count="2">
+
+
+	<listeners>
+		<listener
+			class-name="com.qa.opencart.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.opencart.listeners.TestAllureListener" />
+	</listeners>
+
+	<test name="LoginTest">
+		<classes>
+			<class name="tests.KeywordDrivenTest" />
+		</classes>
+	</test>
+	<!-- Add more <test> elements for other test classes if needed -->
+</suite>
