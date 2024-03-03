@@ -20,8 +20,7 @@ This project demonstrates a Keyword Driven Testing (KDT) framework implemented u
 1. Clone the repository to your local machine.
 2. Import the project into your preferred Java IDE (e.g., Eclipse, IntelliJ IDEA).
 3. Ensure that you have the necessary dependencies configured (e.g., Selenium WebDriver, TestNG).
-4. Download the appropriate WebDriver executable for your browser and update the path in the code (if necessary).
-5. Define your test cases in CSV files located in the `src/test/resources/csvs/` directory.
+4. Define your test cases in CSV files located in the `src/test/resources/csvs/` directory.
 
 ## Running Tests
 - You can run the tests using the TestNG XML configuration file (`testng.xml`).
