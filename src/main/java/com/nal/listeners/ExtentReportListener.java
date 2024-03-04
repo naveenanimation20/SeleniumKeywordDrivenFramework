@@ -1,4 +1,4 @@
-package com.qa.opencart.listeners;
+package com.nal.listeners;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,8 +15,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
-import ExecutionRunner.TestExecutor;
+import com.nal.keywords.KeywordExecutor;
 
 
 public class ExtentReportListener implements ITestListener {
@@ -103,13 +102,13 @@ public class ExtentReportListener implements ITestListener {
 		System.out.println((result.getMethod().getMethodName() + " failed!"));
 		String methodName = result.getMethod().getMethodName();
 		test.get().fail("Test failed");
-		test.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(TestExecutor.getScreenshot(methodName), methodName).build());
+		test.get().fail(result.getThrowable(), MediaEntityBuilder.createScreenCaptureFromPath(KeywordExecutor.getScreenshot(methodName), methodName).build());
 		test.get().getModel().setEndTime(getTime(result.getEndMillis()));
 	}
 
 	public synchronized void onTestSkipped(ITestResult result) {
 		System.out.println((result.getMethod().getMethodName() + " skipped!"));
-		String methodName = result.getMethod().getMethodName();
+		//String methodName = result.getMethod().getMethodName();
 		
 		test.get().skip("Test skipped");
 

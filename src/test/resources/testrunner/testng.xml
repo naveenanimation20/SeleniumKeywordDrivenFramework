@@ -3,10 +3,8 @@
 
 
 	<listeners>
-		<listener
-			class-name="com.qa.opencart.listeners.ExtentReportListener" />
-		<listener
-			class-name="com.qa.opencart.listeners.TestAllureListener" />
+		<listener class-name="com.nal.listeners.ExtentReportListener" />
+		<listener class-name="com.nal.listeners.TestAllureListener" />
 	</listeners>
 
 	<test name="KD Test">
@@ -20,3 +18,4 @@
 
 
 </suite>
+

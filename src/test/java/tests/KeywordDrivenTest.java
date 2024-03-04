@@ -1,51 +1,38 @@
+
 package tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.qa.opencart.listeners.TestAllureListener;
-
-import ExecutionRunner.TestExecutor;
-
+import com.nal.keywords.KeywordExecutor;
+import com.nal.listeners.TestAllureListener;
 
 @Listeners(TestAllureListener.class)
 public class KeywordDrivenTest {
 
-
-	
-
 	@AfterMethod
 	public void tearDown() {
-		if(TestExecutor.getDriver()!=null) {
-			TestExecutor.getDriver().close();
+		if (KeywordExecutor.getDriver() != null) {
+			KeywordExecutor.getDriver().close();
 		}
 	}
-	
 
-	
 	@Test
 	public void executeLoginTest() {
-		TestExecutor testExecutor = new TestExecutor();
-		testExecutor.executeTestCasesFromCSV("login_test.csv");
+		KeywordExecutor keywordExecutor = new KeywordExecutor();
+		keywordExecutor.executeTestCasesFromCSV("login_test.csv");
 	}
 
-    @Test
+	@Test
 	public void executeSearchTest() {
-		TestExecutor testExecutor = new TestExecutor();
-		testExecutor.executeTestCasesFromCSV("search_test.csv");
+		KeywordExecutor keywordExecutor = new KeywordExecutor();
+		keywordExecutor.executeTestCasesFromCSV("search_test.csv");
 	}
 
-    @Test
+	@Test
 	public void executeHomeTest() {
-		TestExecutor testExecutor = new TestExecutor();
-		testExecutor.executeTestCasesFromCSV("home_test.csv");
+		KeywordExecutor keywordExecutor = new KeywordExecutor();
+		keywordExecutor.executeTestCasesFromCSV("home_test.csv");
 	}
-
-	
-	
-	
-	
-	
-	
 }
