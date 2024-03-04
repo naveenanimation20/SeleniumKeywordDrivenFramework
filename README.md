@@ -36,7 +36,7 @@ This project demonstrates a Keyword Driven Testing (KDT) framework implemented u
 ## Information about reporting tools used in the project, such as Allure, ExtentReport.
 
 - Allure Report
-- Allure is a flexible lightweight test report tool that not only shows a very concise representation of what have been tested in a neat web report form, but allows everyone participating in the development process to extract maximum of useful information from everyday execution of tests.
+  Allure is a flexible lightweight test report tool that not only shows a very concise representation of what have been tested in a neat web report form, but allows everyone participating in the development process to extract maximum of useful information from everyday execution of tests.
 
 - To generate Allure reports, follow these steps:
 
@@ -53,6 +53,15 @@ After the test execution is complete, generate the Allure report using the comma
 <img width="1792" alt="Screenshot 2024-03-04 at 7 36 36 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/da6085b3-6cd2-4ee2-8fdc-d9deb29834ca">
 
 <img width="1787" alt="Screenshot 2024-03-04 at 7 36 59 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/4004cccc-2ce3-4c3e-b3a2-bbeac55b7d92">
+
+- Extent Report
+  ExtentReports is an open-source reporting library for Java designed for the creation of beautiful, interactive, and detailed HTML reports.
+  - After the test execution is complete, the Extent report will be generated automatically.
+  - View the generated Extent report in the /reports directory.
+
+  <img width="1461" alt="Screenshot 2024-03-04 at 7 38 08 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/c77caa57-dd74-4220-8006-d2b06bee17c8">
+
+<img width="1455" alt="Screenshot 2024-03-04 at 7 38 29 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/cabde873-0151-4ad5-8828-7b6e1325aca8">
 
 ## Contributing
 Contributions to improve the framework or add new features are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
