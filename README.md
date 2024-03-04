@@ -28,6 +28,11 @@ This project demonstrates a Keyword Driven Testing (KDT) framework implemented u
 - Ensure that the WebDriver instance is properly initialized and managed during test execution.
 - Parallel run through thread-count and parallel tags in testng.xml
 
+## Console Output
+- You can see the full csv file formatted data in the console output.
+  ![Uploading Screenshot 2024-03-04 at 8.02.29 PM.png…]()
+
+
 ## Test Reporting
 - TestNG generates detailed HTML reports after test execution.
 - The reports provide information about test results, including pass/fail status and error messages.
