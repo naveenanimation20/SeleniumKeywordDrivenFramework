@@ -1,4 +1,4 @@
-Search, OpenBrowser, chrome,
+Search, OpenBrowser, firefox,
 Search, NavigateTo, https://naveenautomationlabs.com/opencart/index.php?route=account/account,
 Search, Type, id=input-email, pwtest@opencart.com
 Search, Type, id=input-password, pw123
