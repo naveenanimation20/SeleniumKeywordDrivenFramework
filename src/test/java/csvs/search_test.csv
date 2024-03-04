@@ -3,5 +3,5 @@ Search, NavigateTo, https://naveenautomationlabs.com/opencart/index.php?route=ac
 Search, Type, id=input-email, pwtest@opencart.com
 Search, Type, id=input-password, pw123
 Search, Click, xpath=//input[@value='Login'],
-Search,Type,name=search1,macbook
+Search,Type,name=search,macbook
 Search,Click,css=button[class='btn btn-default btn-lg'],

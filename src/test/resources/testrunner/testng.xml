@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ParallelTests" parallel="methods" thread-count="2">
+<suite name="ParallelTests" parallel="methods" thread-count="5">
 
 
 	<listeners>
@@ -9,10 +9,14 @@
 			class-name="com.qa.opencart.listeners.TestAllureListener" />
 	</listeners>
 
-	<test name="LoginTest">
+	<test name="KD Test">
 		<classes>
 			<class name="tests.KeywordDrivenTest" />
 		</classes>
 	</test>
-	<!-- Add more <test> elements for other test classes if needed -->
+
+
+
+
+
 </suite>

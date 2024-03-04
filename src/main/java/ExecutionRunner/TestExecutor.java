@@ -15,15 +15,72 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 
+import io.qameta.allure.Step;
+
 public class TestExecutor {
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
+    private static final Object lock = new Object();
+    
+    public static String csvPath = null;
+
+
 
 	public TestExecutor() {
 		// this.driver = new ChromeDriver();
+		
+	}
+	
+	
+	private void printTestCasesFromCSV(String csvFile) {
+		synchronized (lock) {
+            try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
+                String line;
+                System.out.println("Test cases from CSV file: " + csvFile);
+                System.out.println("+-------------------------------------------------------------------------------------------+");
+                System.out.printf("| %-15s | %-15s | %-50s | %-20s |\n", "Test Case", "Keyword", "Target", "Value");
+                System.out.println("+-------------------------------------------------------------------------------------------+");
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(",");
+                    String testCase = data[0];
+                    String keyword = data[1];
+                    String target = data[2];
+                    String value = "";
+                    if (data.length > 3) {
+                        value = data[3];
+                    }
+                    System.out.printf("| %-15s | %-15s | %-50s | %-20s |\n", testCase, keyword, target, value);
+                }
+                System.out.println("+----------------------------------------------------------------+");
+                System.out.println("Total test cases: " + getTestCaseCount(csvFile));
+                System.out.println("+----------------------------------------------------------------+");
+                System.out.println(); // Add a blank line for separation
+                System.out.println(); // Add a blank line for additional separation
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 
+	
+	private int getTestCaseCount(String csvFile) throws IOException {
+        int count = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
+            while (br.readLine() != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+	
+	
+	
+	
+	
+	//@Step("csv: {0}" )
 	public void executeTestCasesFromCSV(String csvFile) {
-		try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/" + csvFile))) {
+		csvPath = "./src/test/java/csvs/"+csvFile;
+		printTestCasesFromCSV(csvFile);
+		try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
 			String line;
 			String currentTestCase = null;
 			List<String> testSteps = new ArrayList<>();
@@ -71,6 +128,7 @@ public class TestExecutor {
 		}
 	}
 
+	@Step("{keyword} | {target} | {value} | ")
 	private void executeKeyword(String keyword, String target, String value) {
 		// Interpret and execute keywords
 		switch (keyword) {
@@ -97,6 +155,7 @@ public class TestExecutor {
 		return tlDriver.get();
 	}
 
+    @Step("Open browser: {browserName}")
 	private void openBrowser(String browserName) {
 		switch (browserName.toLowerCase()) {
 		case "chrome":
@@ -109,20 +168,24 @@ public class TestExecutor {
 		}
 	}
 
+    @Step("Navigate to URL: {url}")
 	private void navigateTo(String url) {
 		getDriver().navigate().to(url);
 	}
 
+    @Step("Click on element: {target}")
 	private void click(String target) {
 		By locator = getBy(target);
 		getDriver().findElement(locator).click();
 	}
 
+    @Step("Type '{value}' into element: {target}")
 	private void type(String target, String value) {
 		By locator = getBy(target);
 		getDriver().findElement(locator).sendKeys(value);
 	}
 
+    @Step("Verify text '{expectedText}' in element: {target}")
 	private void verifyText(String target, String expectedText) {
 		By locator = getBy(target);
 		String actualText = getDriver().findElement(locator).getText();

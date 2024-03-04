@@ -1,6 +1,11 @@
 package com.qa.opencart.listeners;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +18,8 @@ import io.qameta.allure.Attachment;
 
 
 public class TestAllureListener implements ITestListener {
+
+	
 
 	private static String getTestMethodName(ITestResult iTestResult) {
 		return iTestResult.getMethod().getConstructorOrMethod().getName();
@@ -36,16 +43,30 @@ public class TestAllureListener implements ITestListener {
 	public static String attachHtml(String html) {
 		return html;
 	}
+	
+	// Attaching CSV file content as text/plain attachment
+	// Attaching CSV file as a text/csv attachment
+    @Attachment(value = "CSV File", type = "text/csv")
+    public byte[] attachCSVFile(String filePath) {
+        try {
+            Path path = Paths.get(filePath);
+            return Files.readAllBytes(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 	@Override
 	public void onStart(ITestContext iTestContext) {
 		System.out.println("I am in onStart method " + iTestContext.getName());
-		//iTestContext.setAttribute("WebDriver", BasePage.getDriver());
 	}
 
 	@Override
 	public void onFinish(ITestContext iTestContext) {
 		System.out.println("I am in onFinish method " + iTestContext.getName());
+		attachCSVFile(TestExecutor.csvPath);
+
 	}
 
 	@Override
