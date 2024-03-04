@@ -1,6 +1,5 @@
 package com.nal.utils;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,12 +8,24 @@ import java.util.List;
 
 import com.nal.keywords.KeywordExecutor;
 
+/**
+ * @author naveenautomationlabs
+ * This class reads test cases from CSV files and executes them using a KeywordExecutor.
+ */
 public class CSVReader {
 
     private static final Object lock = new Object();
 
+    /**
+     * Path to the CSV file being processed.
+     */
     public static String csvPath = null;
 
+    /**
+     * Reads and executes test cases from a CSV file.
+     * 
+     * @param csvFile The path to the CSV file containing test cases.
+     */
     public void executeTestCasesFromCSV(String csvFile) {
         csvPath = "./src/test/resources/csvs/" + csvFile;
         printTestCasesFromCSV(csvFile);
@@ -55,6 +66,11 @@ public class CSVReader {
         }
     }
 
+    /**
+     * Prints the test cases from the given CSV file.
+     * 
+     * @param csvFile The path to the CSV file containing test cases.
+     */
     private void printTestCasesFromCSV(String csvFile) {
         synchronized (lock) {
             try (BufferedReader br = new BufferedReader(
@@ -88,6 +104,13 @@ public class CSVReader {
         }
     }
 
+    /**
+     * Counts the number of test cases in the given CSV file.
+     * 
+     * @param csvFile The path to the CSV file containing test cases.
+     * @return The number of test cases in the CSV file.
+     * @throws IOException If an I/O error occurs.
+     */
     private int getTestCaseCount(String csvFile) throws IOException {
         int count = 0;
         try (BufferedReader br = new BufferedReader(
@@ -99,4 +122,3 @@ public class CSVReader {
         return count;
     }
 }
-
