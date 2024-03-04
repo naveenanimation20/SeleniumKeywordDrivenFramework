@@ -54,6 +54,8 @@ After the test execution is complete, generate the Allure report using the comma
 
 <img width="1787" alt="Screenshot 2024-03-04 at 7 36 59 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/4004cccc-2ce3-4c3e-b3a2-bbeac55b7d92">
 
+<img width="1766" alt="Screenshot 2024-03-04 at 7 53 04 PM" src="https://github.com/naveenanimation20/SeleniumKeywordDrivenFramework/assets/6771652/5e3dfd3f-bc28-4510-829e-22fd4e0f22a3">
+
 - Extent Report
   ExtentReports is an open-source reporting library for Java designed for the creation of beautiful, interactive, and detailed HTML reports.
   - After the test execution is complete, the Extent report will be generated automatically.
