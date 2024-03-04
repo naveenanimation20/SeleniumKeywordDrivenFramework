@@ -53,8 +53,8 @@ public class TestExecutor {
                 System.out.println("+----------------------------------------------------------------+");
                 System.out.println("Total test cases: " + getTestCaseCount(csvFile));
                 System.out.println("+----------------------------------------------------------------+");
-                System.out.println(); // Add a blank line for separation
-                System.out.println(); // Add a blank line for additional separation
+                System.out.println(); 
+                System.out.println(); 
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -90,7 +90,7 @@ public class TestExecutor {
 				String testCaseName = data[0];
 				String keyword = data[1].trim();
 				String target = data[2].trim();
-				String value = (data.length == 4) ? data[3].trim() : ""; // Set value to empty string if not provided
+				String value = (data.length == 4) ? data[3].trim() : ""; 
 
 				if (!testCaseName.equals(currentTestCase)) {
 					// Execute previous test case steps
@@ -159,7 +159,6 @@ public class TestExecutor {
 	private void openBrowser(String browserName) {
 		switch (browserName.toLowerCase()) {
 		case "chrome":
-			// this.driver = new ChromeDriver();
 			tlDriver.set(new ChromeDriver());
 			break;
 

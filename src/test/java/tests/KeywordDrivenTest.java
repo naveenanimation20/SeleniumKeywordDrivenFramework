@@ -17,7 +17,6 @@ public class KeywordDrivenTest {
 
 	@AfterMethod
 	public void tearDown() {
-		// Quit TestExecutor
 		if(TestExecutor.getDriver()!=null) {
 			TestExecutor.getDriver().close();
 		}
