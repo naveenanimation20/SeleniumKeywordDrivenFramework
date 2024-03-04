@@ -33,7 +33,7 @@ public class TestExecutor {
 	
 	private void printTestCasesFromCSV(String csvFile) {
 		synchronized (lock) {
-            try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("./src/test/resources/csvs/"+csvFile))) {
                 String line;
                 System.out.println("Test cases from CSV file: " + csvFile);
                 System.out.println("+-------------------------------------------------------------------------------------------+");
@@ -64,7 +64,7 @@ public class TestExecutor {
 	
 	private int getTestCaseCount(String csvFile) throws IOException {
         int count = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("./src/test/resources/csvs/"+csvFile))) {
             while (br.readLine() != null) {
                 count++;
             }
@@ -78,9 +78,9 @@ public class TestExecutor {
 	
 	//@Step("csv: {0}" )
 	public void executeTestCasesFromCSV(String csvFile) {
-		csvPath = "./src/test/java/csvs/"+csvFile;
+		csvPath = "./src/test/resources/csvs/"+csvFile;
 		printTestCasesFromCSV(csvFile);
-		try (BufferedReader br = new BufferedReader(new FileReader("./src/test/java/csvs/"+csvFile))) {
+		try (BufferedReader br = new BufferedReader(new FileReader("./src/test/resources/csvs/"+csvFile))) {
 			String line;
 			String currentTestCase = null;
 			List<String> testSteps = new ArrayList<>();
