@@ -141,6 +141,7 @@ public class KeywordExecutor {
 	@Step("Open browser: {browser}")
 	private void openBrowser(Browser browser) {
 		WebDriver driver;
+		System.out.println("==========browser : " + browser);
 		switch (browser) {
 		case chrome:
 			driver = new ChromeDriver();
