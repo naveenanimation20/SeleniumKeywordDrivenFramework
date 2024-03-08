@@ -3,4 +3,4 @@ Home, NavigateTo, https://naveenautomationlabs.com/opencart/index.php?route=acco
 Home, Type, id=input-email, pwtest@opencart.com
 Home, Type, id=input-password, pw123
 Home, Click, xpath=//input[@value='Login'],
-Home, VerifyText, xpath=//h2[normalize-space()='My Account'], My Accounts
+Home, VerifyText, xpath=//h2[normalize-space()='My Account'], My Account
