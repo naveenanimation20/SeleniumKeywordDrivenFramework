@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.safari.SafariDriver;
@@ -161,7 +162,20 @@ public class KeywordExecutor {
 			driver = new ChromeDriver(co);
 			break;
 		case firefox:
-			driver = new FirefoxDriver();
+			FirefoxOptions fo = new FirefoxOptions();
+			fo.addArguments("--window-size=1920,1080");
+            fo.addArguments("--no-sandbox");
+            fo.addArguments("--headless");
+            fo.addArguments("--disable-gpu");
+            fo.addArguments("--disable-crash-reporter");
+            fo.addArguments("--disable-extensions");
+            fo.addArguments("--disable-in-process-stack-traces");
+            fo.addArguments("--disable-logging");
+            fo.addArguments("--disable-dev-shm-usage");
+            fo.addArguments("--log-level=3");
+            fo.addArguments("--output=/dev/null");
+            fo.addArguments("ignore-certificate-errors");
+			driver = new FirefoxDriver(fo);
 			break;
 		case edge:
 			driver = new EdgeDriver();
